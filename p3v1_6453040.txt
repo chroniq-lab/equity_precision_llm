@@ -1,9 +1,0 @@
-Based on the title, abstract, and MeSH terms below and the previously described inclusion criteria, identify using “yes” or “no” as categorizations if the article is related to precision medicine, diabetes, correct source population, and primary study.  
-
-Title: [Gd- allele distribution patterns in Azerbaijan. III. The identification of mutant forms of glucose-6-phosphate dehydrogenase] 
-
-Abstract: In 28 families with G6PD deficiency living in 3 settlements of Shekii district of Azerbaijan 11 G6PD variants of II and III classes differing by kinetic properties were identified according WHO program. 9 of them are characterized with the same electrophoretic mobility. Comparison of G6PD spectra in two subpopulations and in a mixed group permits to make a conclusion about existence of common and rare G6PD alleles in examined population. They distribute by gene drift supported by natural selection. Among 7 samples of G6PD with normal and increased activity two new variants of IV class -- Nukha and Bash-Kungut -- were found.
-
-MeSH: Alleles*; Azerbaijan; Enzyme Activation; Erythrocytes / enzymology; Genetics; Population; Glucosephosphate Dehydrogenase / genetics*; Glucosephosphate Dehydrogenase Deficiency / genetics; Heterozygote; Humans; Mutation*; Polymorphism, Genetic
-
-Organize your analysis of this abstract in a table, with the following columns: article name, precision medicine, diabetes, correct source population, primary study.

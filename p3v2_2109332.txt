@@ -1,9 +1,0 @@
-Based on the title, abstract, and MeSH terms below and the previously described inclusion criteria, identify using “yes” or “no” as categorizations if the article is related to precision medicine, diabetes, correct source population, and primary study.  
-
-Title: Rural/urban differences of diabetes--impaired glucose tolerance, hypertension, obesity, glycosolated haemoglobin, nutritional proteins, fasting cholesterol and apolipoproteins in Fijian Melanesians over 40
-
-Abstract: Two populations of Fijian Melanesians over 40 years of age were compared. The first population was located in a remote rural area and the other in an urban environment. There was no significant difference between the two populations in age, height and diastolic blood pressure. Highly significant differences were observed in mean weight, body mass index, prevalence of impaired glucose tolerance, prevalence of diabetes, mean glycosolated haemoglobin, mean systolic blood pressure, fasting cholesterol, immunological albumin, immunological transferrin, and A1 and B apolipoproteins. The higher value was associated with urban living. Thus urban living is associated with obesity, impaired glucose tolerance, diabetes, higher systolic blood pressure, higher levels of fasting lipids and increased risk factors for cardiovascular disease.   
-
-MeSH: Apolipoprotein A-I; Apolipoproteins A / blood; Apolipoproteins B / analysis; Body Mass Index; Cholesterol / blood; Diabetes Mellitus, Type 2 / epidemiology*; Female; Glucose Tolerance Test; Glycated Hemoglobin / analysis; Humans; Hypertension / epidemiology*; Lipoproteins, HDL / analysis; Male; Melanesia / epidemiology; Middle Aged; Obesity / epidemiology*; Rural Health*; Serum Albumin / analysis; Transferrin / analysis; Urban Health*   
-
-Organize your analysis of this abstract in a table, with the following columns: article name, precision medicine, diabetes, correct source population, primary study. 
