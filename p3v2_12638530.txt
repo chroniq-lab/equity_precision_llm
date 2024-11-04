@@ -1,0 +1,18 @@
+Based on the title, abstract, and MeSH terms below and the previously described inclusion criteria, identify using “yes” or “no” as categorizations if the article is related to precision medicine, diabetes, correct source population, and primary study.  
+
+Title: Long-term evolution of blood lipid profiles and glycemic levels in patients after spinal cord injury 
+
+Abstract: 
+"Objective: To analyze the lipid and glycemic profiles in relation to age, time elapsed post injury and the level of injury in a group of patients with SCI.
+
+Subjects: 2135 subjects with SCI were recruited during the annual routine health check-up carried out at the Institut Guttmann of Badalona, in Spain. The patients were classified according to the level of SCI and their age.
+
+Methods: Serum lipid profiles and glycemic (glucose) levels were determined. Data was collected between 1996 and 2001, all biochemical analysis being performed by the same laboratory.
+
+Results: Serum cholesterol levels show a statistically significant correlation with patient's age(P<0.001) and with time elapsed after injury (P<0.05). Differences can be observed between the values obtained from the different injury level groups (F=22.14; P<0.001). LDL-c shows a statistically significant difference between the four different age groups (F=3.51, P<0.05). There is an increase in plasma triglycerides related to the increase in age of the patients without observable differences between the injury level groups. The concentration of serum glucose increases with age (P<0.001) and also with the time elapsed after injury (P<0.05).
+
+Conclusion: There is a direct relationship between various biochemical parameters (total cholesterol, LDL-c and glucose) and the age of the patients, but not with the severity or time of evolution of the spinal cord injury."  
+
+MeSH: Adult; Age Factors; Aged; Blood Glucose / metabolism*; Cervical Vertebrae / injuries; Cholesterol / blood*; Cholesterol, HDL / blood; Cholesterol, LDL / blood; Female; Follow-Up Studies; Humans; Lumbar Vertebrae / injuries; Male; Middle Aged; Patients / statistics & numerical data; Spinal Cord Injuries / blood*; Thoracic Vertebrae / injuries; Time; Time Factors  
+
+Organize your analysis of this abstract in a table, with the following columns: article name, precision medicine, diabetes, correct source population, primary study. 
