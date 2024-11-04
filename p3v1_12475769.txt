@@ -1,0 +1,9 @@
+Based on the title, abstract, and MeSH terms below and the previously described inclusion criteria, identify using “yes” or “no” as categorizations if the article is related to precision medicine, diabetes, correct source population, and primary study.  
+
+Title: Evidence for a novel type 1 diabetes susceptibility locus on chromosome 8
+
+Abstract: Type 1 diabetes results from a combination of genetic susceptibility and environmental exposures. Susceptibility loci other than HLA and the insulin gene remain to be identified to account for the degree of familial clustering observed in this disorder. Early genome-wide scans provided suggestive evidence of linkage on chromosome 8q, prompting detailed analysis of this region. A total of 20 microsatellite markers spanning an 88-cM region of 8q11-24 were genotyped in 24 type 1 diabetes pedigrees from Wisconsin that contained 39 affected sib-pairs. Multipoint linkage analyses provided close to suggestive evidence of linkage, with a multipoint logarithm of odds score (MLS) of 2.4 and Genehunter nonparametric logarithm of odds score (NPL) of 2.7 (P = 0.003). There is also evidence of linkage disequilibrium at peak marker D8S1823 for the 217bp allele (P = 0.037) using the pedigree disequilibrium test. Although our sample size was small, the multiple tests were consistent and our preliminary results suggested that 8q24 may harbor a novel population-specific type 1 diabetes susceptibility gene. Continued investigation of this region for a novel type 1 diabetes susceptibility gene appears justified. 
+
+MeSH: Chromosome Mapping; Chromosomes, Human; Pair 8 / genetics; Diabetes Mellitus, Type 1 / genetics*; Genetic Linkage; Genetic Markers; Genetic Predisposition to Disease / genetics*; Genotype; Humans; Microsatellite Repeats 
+
+Organize your analysis of this abstract in a table, with the following columns: article name, precision medicine, diabetes, correct source population, primary study.
