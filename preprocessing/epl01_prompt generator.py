@@ -20,7 +20,7 @@ if os.getlogin()=='aamnasoniwala':
 
 excel_path = path_equity_precision_llm_folder + "/llm training/Methods.xlsx"
 
-base_prompt_files = ['p1v1', 'p2v3', 'p3v1']
+base_prompt_files = ['p1v4', 'p2v4', 'p3v4']
 
 base_prompts = []
 
@@ -31,6 +31,7 @@ for index, prompt_file in enumerate(base_prompt_files):
 
 
     with open(file_path, "r") as file:
+        # print(prompt_file)
         # Create a base_prompts list of the three prompts saved as an index 
         # base_prompts[0]: p1v1.txt
         # base_prompts[1]: p2v1.txt
