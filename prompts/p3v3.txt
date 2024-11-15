@@ -1,11 +1,9 @@
-Based on the title, abstract, and MeSH terms below and the previously described inclusion criteria, identify using "yes" or "no" as categorizations if the article is related to precision medicine, and primary study.  
+Based on the title, abstract, and MeSH terms below and the previously described inclusion criteria, identify using “yes” or “no” as categorizations if the article fulfills the criteria for precision medicine, diabetes, and primary study. Additionally, identify the source population. 
 
-Title: <INSERT TITLE>
+Title: 
 
-Abstract: <INSERT ABSTRACT>
+Abstract:   
 
-MeSH: <INSERT MESH TERMS>
+MeSH:   
 
-Correct Source Population: <INSERT SOURCE POPULATION>
-
-Organize your analysis of this abstract in a table, with the following columns: article name, precision medicine, diabetes, correct source population, primary study.
+Organize your analysis of this abstract in a table, with the following columns: article name, precision medicine, diabetes, correct source population, primary study. Please provide evidence directly from the title, abstract, and MeSH terms to justify your classifications. 

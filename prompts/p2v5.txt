@@ -1,0 +1,9 @@
+Here are the inclusion criteria:  
+
+DIABETES: Do not exclude any type of diabetes or prediabetes. The presence of certain conditions or risk factors may not definitively confirm that the study is related to diabetes or prediabetes, unless there is a clear link to diabetes pathophysiology, diagnosis, or management. 
+
+PRECISION MEDICINE: Precision medicine is an assessment of genetic or metabolic state to guide preventive and therapeutic decisions in humans. Exclude epidemiological studies using traditional biomarkers only, focusing on approaches that involve genetic data or omics (genomics, metabolomics, proteomics, lipidomics etc.) or multi-omics studies. 
+
+SOURCE POPULATION: The source population is correct if the population based on the prompt and the study participants’ racial/ethnic background and ancestry, regardless of geographic location, are the same. The source population refers to humans specifically, excluding plants and therapeutics that may originate in the GBD region and non-human animal models. The options are people descending from Central Asia (CA), Central and Eastern Europe (CEE), East Asia (EA), Latin America & Caribbean (LAC), Middle East & North Africa (MENA), South East Asia & Pacific Islands (SEAP), South Asia (SA), Sub-Saharan Africa (SSA), the United States of America and Canada (NA), or Western Europe (WE). 
+
+PRIMARY STUDY: All types of studies, other than meta-analysis and systematic reviews, were evaluated as primary studies. Although it may bias the studies towards counting contributions of large biorepositories, secondary analysis of previously collected datasets was also included since these generate novel insights into the pathophysiology of diabetes for source populations that these biorepositories sample from.  
