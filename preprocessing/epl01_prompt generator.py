@@ -20,7 +20,7 @@ if os.getlogin()=='aamnasoniwala':
 
 excel_path = path_equity_precision_llm_folder + "/llm training/Methods.xlsx"
 
-base_prompt_files = ['p1v4', 'p2v4', 'p3v4']
+base_prompt_files = ['p1v4', 'p2v4', 'p3v6']
 
 base_prompts = []
 
@@ -63,6 +63,7 @@ def prompt_generator(PMID, base_prompt_list, excel_path):
 
         # Use regular expressions to replace the text in the base prompt with the title, abstract, and MeSH terms
     prompt_new = re.sub(r"<INSERT TITLE>", title, prompt_template)
+    prompt_new = re.sub(r"<INSERT PMID>", str(PMID), prompt_new)
     prompt_new = re.sub(r"<INSERT ABSTRACT>", abstract, prompt_new)
     if pd.notna(mesh):
         # print("Mesh is not null")
