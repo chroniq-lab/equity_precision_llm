@@ -1,6 +1,6 @@
-Based on the title, abstract, and MeSH terms below and the previously described inclusion criteria, identify using “yes” or “no” as categorizations if the article fulfills the criteria for precision medicine, diabetes, and primary study. Additionally, identify the source population. 
+Based on the title, abstract, and MeSH terms below and the previously described inclusion criteria, identify using "yes" or "no" as categorizations if the article fulfills the criteria for precision medicine, diabetes, and primary study. Additionally, identify the source population. 
 
-Title: 
+Title: <INSERT TITLE> 
 
 Abstract:   
 
