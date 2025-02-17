@@ -1,34 +1,51 @@
 import pandas as pd
 
 def format_gpt_output(json_output):
-    # Code for formatting GPT output
-    df = pd.read_json(json_output.content.decode('utf-8'), lines=True)
+    try:
+        df = pd.read_json(json_output.content.decode('utf-8'), lines=True)
+    except ValueError as e:
+        raise ValueError("Invalid JSON format") from e
 
-    results = pd.DataFrame()
-    for index in range(len(df)):
-        markdown_table = df['response'][index]['body']['choices'][0]['message']['content']
-        out = pd.read_csv(pd.io.common.StringIO(markdown_table.split('\n\n')[1]), 
-                      sep="|", skipinitialspace=False, 
-                      skipfooter=0, engine='python',header=0)
+    results = pd.DataFrame()  # Initialize an empty DataFrame
 
+    try:
+        markdown_table = df['response'][0]['body']['choices'][0]['message']['content']
+        table_data = markdown_table.split('\n\n')[1]  # Extract table data
+        
+        out = pd.read_csv(pd.io.common.StringIO(table_data), 
+                          sep="|", 
+                          skipinitialspace=False, 
+                          engine='python', 
+                          header=0)
+
+        # Clean column names
         out.columns = out.columns.str.lower().str.strip().str.replace('**', '')
-        results = pd.concat([results,out.iloc[[1]]])
-    
-    results = results.filter(regex=r'^(?!unnamed)')
 
+        # Append first row of extracted data
+        results = pd.concat([results, out.iloc[[1]]], ignore_index=True)
 
-    # Rename 'precision medicine' as 'precision_medicine'
-    results = results.rename(columns={'precision medicine': 'gpt_precision_medicine', 
-                                    'diabetes': 'gpt_diabetes', 
-                                    'primary study': 'gpt_primary_study', 
-                                    'source population': 'gpt_source_population'})
-    results['pmid'] = results['pmid'].astype('int32')
-    # Convert to lower to match
-    results['gpt_precision_medicine'] = results['gpt_precision_medicine'].str.lower().str.strip()
-    results['gpt_diabetes'] = results['gpt_diabetes'].str.lower().str.strip()
-    results['gpt_primary_study'] = results['gpt_primary_study'].str.lower().str.strip()
-    results['gpt_source_population'] = results['gpt_source_population'].str.lower().str.strip()
+    except (KeyError, IndexError, pd.errors.ParserError) as e:
+        raise ValueError("Error parsing markdown table") from e
 
+    # Remove unnamed columns
+    results = results.loc[:, ~results.columns.str.contains('^unnamed')]
+
+    # Rename columns
+    rename_dict = {
+        'precision medicine': 'gpt_precision_medicine',
+        'diabetes': 'gpt_diabetes',
+        'primary study': 'gpt_primary_study',
+        'source population': 'gpt_source_population'
+    }
+    results = results.rename(columns=rename_dict)
+
+    # Ensure 'pmid' column exists before conversion
+    if 'pmid' in results.columns:
+        results['pmid'] = results['pmid'].astype('int32', errors='ignore')
+
+    # Convert string columns to lowercase
+    for col in ['gpt_precision_medicine', 'gpt_diabetes', 'gpt_primary_study', 'gpt_source_population']:
+        if col in results.columns:
+            results[col] = results[col].str.lower().str.strip()
 
     return results
-
