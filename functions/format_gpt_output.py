@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 
 def format_gpt_output(json_output):
     try:
@@ -9,20 +10,17 @@ def format_gpt_output(json_output):
     results = pd.DataFrame()  # Initialize an empty DataFrame
 
     try:
-        markdown_table = df['response'][0]['body']['choices'][0]['message']['content']
-        table_data = markdown_table.split('\n\n')[1]  # Extract table data
-        
-        out = pd.read_csv(pd.io.common.StringIO(table_data), 
-                          sep="|", 
-                          skipinitialspace=False, 
-                          engine='python', 
-                          header=0)
-
-        # Clean column names
-        out.columns = out.columns.str.lower().str.strip().str.replace('**', '')
-
-        # Append first row of extracted data
-        results = pd.concat([results, out.iloc[[1]]], ignore_index=True)
+        for i in range(len(df)):
+            markdown_table = df['response'][i]['body']['choices'][0]['message']['content']
+            cleaned_table = re.sub(r'^.*?(?=\| PMID)', '', markdown_table, flags=re.DOTALL)
+            table_data = cleaned_table.split('\n\n')[0]  # Extract table data
+            out = pd.read_csv(pd.io.common.StringIO(table_data), 
+                      sep="|", 
+                      skipinitialspace=False, 
+                      engine='python', 
+                      header=0)
+            out.columns = out.columns.str.lower().str.strip().str.replace('**', '')
+            results = pd.concat([results, out.iloc[[1]]], ignore_index=True)
 
     except (KeyError, IndexError, pd.errors.ParserError) as e:
         raise ValueError("Error parsing markdown table") from e
