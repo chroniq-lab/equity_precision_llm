@@ -1,11 +1,11 @@
 
 
 
-def prompt_generator(PMID, base_prompt_list, excel_path):
+def prompt_generator(PMID, base_prompt_list, excel_path,sheet_name = 'Training Data'):
     # print(PMID)
 
     # Step 1: Read the excel sheet
-    df = pd.read_excel(excel_path, sheet_name='Training Data')
+    df = pd.read_excel(excel_path, sheet_name=sheet_name)
 
     # Step 2: Filter the excel sheet for the PMID, and create 3 variables: title, abstract, mesh
     record = df[df['PMID'] == PMID].iloc[0]
