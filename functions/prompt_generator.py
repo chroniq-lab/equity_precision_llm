@@ -1,7 +1,7 @@
 
 
 
-def prompt_generator(PMID, base_prompt_list, excel_path,sheet_name = 'Training Data'):
+def prompt_generator(PMID, base_prompt_list, excel_path, sheet_name = 'Training Data'):
     # print(PMID)
 
     # Step 1: Read the excel sheet
@@ -25,7 +25,13 @@ def prompt_generator(PMID, base_prompt_list, excel_path,sheet_name = 'Training D
         # Use regular expressions to replace the text in the base prompt with the title, abstract, and MeSH terms
     prompt_new = re.sub(r"<INSERT TITLE>", title, prompt_template)
     prompt_new = re.sub(r"<INSERT PMID>", str(PMID), prompt_new)
-    prompt_new = re.sub(r"<INSERT ABSTRACT>", abstract, prompt_new)
+    if pd.notna(abstract):
+        # print("Mesh is not null")
+        prompt_new = re.sub(r"<INSERT ABSTRACT>", abstract, prompt_new)
+        # Step 4: Return the prompt
+    else:
+        prompt_new = re.sub(r"<INSERT ABSTRACT>", "", prompt_new)
+    
     if pd.notna(mesh):
         # print("Mesh is not null")
         prompt_new = re.sub(r"<INSERT MESH TERMS>", mesh, prompt_new)
