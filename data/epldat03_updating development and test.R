@@ -32,7 +32,10 @@ development <- read_csv(paste0(path_equity_precision_llm_folder,"/llm training/D
                               is.na(abstract) & !is.na(epan03_abstract) ~ epan03_abstract,
                               
                               TRUE ~ ""),
-         MeSH = case_when(is.na(MeSH) | MeSH == "NA" ~ "")) %>% 
+         MeSH = case_when(MeSH == "NA" ~ "",
+                          !is.na(MeSH) ~ MeSH,
+                          is.na(MeSH) ~ "",
+                          TRUE ~ "")) %>% 
   rename('Precision Medicine' = h_precision_medicine,
          'Diabetes' = h_is_diabetes,
          'Source Population' = gbd_region,
@@ -54,14 +57,18 @@ test <- read_csv(paste0(path_equity_precision_llm_folder,"/llm training/Test Dat
                               is.na(abstract) & !is.na(epan03_abstract) ~ epan03_abstract,
                               
                               TRUE ~ ""),
-         MeSH = case_when(is.na(MeSH) | MeSH == "NA" ~ "")) %>% 
+         MeSH = case_when(MeSH == "NA" ~ "",
+                          !is.na(MeSH) ~ MeSH,
+                          is.na(MeSH) ~ "",
+                          TRUE ~ "")) %>% 
+  dplyr::filter(!is.na(PMID),!is.na(h_precision_medicine)) %>% 
   rename('Precision Medicine' = h_precision_medicine,
          'Diabetes' = h_is_diabetes,
          'Source Population' = gbd_region,
          'Correct Source Population' = h_correct_population,
          'Primary Study' = h_primary_study
   ) %>% 
-  dplyr::select(PMID,Title,Abstract,MeSH,one_of(c('Source Population','Precision Medicine','Diabetes','Correct Source Population','Primary Study')))
+  dplyr::select(PMID,Title,Abstract,MeSH,one_of(c('Source Population','Precision Medicine','Diabetes','Correct Source Population','Primary Study'))) 
 
 
 writexl::write_xlsx(development,paste0(path_equity_precision_llm_folder,"/llm training/Development Data.xlsx"))

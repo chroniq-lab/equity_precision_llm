@@ -13,6 +13,9 @@ def prompt_generator(PMID, base_prompt_list, excel_path, sheet_name = 'Training 
     abstract = record['Abstract']
     mesh = record['MeSH']
 
+    title = title.replace("\\", "/")
+    
+
 
     # Step 3: Generate the prompt based on the PMID and source_population
     prompt_template = base_prompt_list[2] 
@@ -26,6 +29,7 @@ def prompt_generator(PMID, base_prompt_list, excel_path, sheet_name = 'Training 
     prompt_new = re.sub(r"<INSERT TITLE>", title, prompt_template)
     prompt_new = re.sub(r"<INSERT PMID>", str(PMID), prompt_new)
     if pd.notna(abstract):
+        abstract = abstract.replace("\\", "/")
         # print("Mesh is not null")
         prompt_new = re.sub(r"<INSERT ABSTRACT>", abstract, prompt_new)
         # Step 4: Return the prompt
