@@ -20,7 +20,7 @@ epan03_mesh <- readRDS(paste0(path_ep_folder,"/working/cleaned/epan03_mesh.RDS")
   group_by(pmid) %>%
   summarize(MeSH = paste0(DescriptorName,collapse=","))
 
-development <- read_csv(paste0(path_equity_precision_llm_folder,"/llm training/Development Data.csv")) %>% 
+development <- read_csv(paste0(path_equity_precision_llm_folder,"/llm training/Original Split CSV without MeSH/Development Data.csv")) %>% 
   left_join(epan03_abstracts %>% 
               dplyr::select(pmid,abstract) %>% 
               rename(epan03_abstract = abstract) %>% 
@@ -45,19 +45,23 @@ development <- read_csv(paste0(path_equity_precision_llm_folder,"/llm training/D
   dplyr::select(PMID,Title,Abstract,MeSH,one_of(c('Source Population','Precision Medicine','Diabetes','Correct Source Population','Primary Study')))
 
 
-test <- read_csv(paste0(path_equity_precision_llm_folder,"/llm training/Test Data.csv")) %>% 
+test <- bind_rows(readxl::read_excel(paste0(path_equity_precision_llm_folder,"/llm training/Test Data 1.xlsx")),
+                  readxl::read_excel(paste0(path_equity_precision_llm_folder,"/llm training/Test Data 2.xlsx"))) %>% 
   left_join(epan03_abstracts %>% 
               dplyr::select(pmid,abstract) %>% 
               rename(epan03_abstract = abstract) %>% 
               mutate(pmid = as.numeric(pmid)),
             by=c("PMID"="pmid")) %>% 
-  left_join(epan03_mesh,
+  left_join(epan03_mesh %>% 
+              dplyr::select(pmid,MeSH) %>% 
+              rename(epan03_MeSH = MeSH),
             by=c("PMID"="pmid")) %>% 
-  mutate(Abstract = case_when(!is.na(abstract) ~ abstract,
-                              is.na(abstract) & !is.na(epan03_abstract) ~ epan03_abstract,
-                              
+  mutate(Abstract = case_when(Abstract == "NA" & !is.na(epan03_abstract) ~ epan03_abstract,
+                              is.na(Abstract) & !is.na(epan03_abstract) ~ epan03_abstract,
+                              !is.na(Abstract) ~ Abstract,
                               TRUE ~ ""),
-         MeSH = case_when(MeSH == "NA" ~ "",
+         MeSH = case_when(MeSH == "NA"& !is.na(epan03_MeSH) ~ epan03_MeSH,
+                          is.na(MeSH) & !is.na(epan03_MeSH) ~ epan03_MeSH,
                           !is.na(MeSH) ~ MeSH,
                           is.na(MeSH) ~ "",
                           TRUE ~ "")) %>% 
@@ -71,6 +75,6 @@ test <- read_csv(paste0(path_equity_precision_llm_folder,"/llm training/Test Dat
   dplyr::select(PMID,Title,Abstract,MeSH,one_of(c('Source Population','Precision Medicine','Diabetes','Correct Source Population','Primary Study'))) 
 
 
-writexl::write_xlsx(development,paste0(path_equity_precision_llm_folder,"/llm training/Development Data.xlsx"))
-writexl::write_xlsx(test,paste0(path_equity_precision_llm_folder,"/llm training/Test Data.xlsx"))
+writexl::write_xlsx(development,paste0(path_equity_precision_llm_folder,"/llm training/epldat03_Development Data.xlsx"))
+writexl::write_xlsx(test,paste0(path_equity_precision_llm_folder,"/llm training/epldat03_Test Data.xlsx"))
 
