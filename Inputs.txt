@@ -4,3 +4,37 @@ batch_input_file_scenario4_part1 = 'file-GNgYAgwqibtGtLZ7tDoHYr'
 batch_input_file_scenario4_part2 = 'file-PHEerMTCjckuLhUH7XVMNw'
 batch_input_file_scenario4_part3 = 'file-FwReX7HJ9Hn7MwhpeXcgn2'
 batch_input_file_scenario4_part4 = 'file-GUvQX1foJb546cCYicyWu8'
+
+# 2025-02-19 18:43:44.535680
+batch_input_file_test_part1 = 'file-BUnkx35U2woCmfZTZEMm4Y'
+batch_input_file_test_part2 = 'file-MyDrCd7uE1WbL8UsfJJu4w'
+batch_input_file_test_part3 = 'file-2ZruoVgJpinYqSrUEEmLrU'
+batch_input_file_test_part4 = 'file-KcjJmu1L49aLZcmE8PV1ZV'
+
+# 2025-02-19 19:28:52.597940
+batch_input_file_test_part2 = 'file-98rr9Jnq17avJpc7ahU7oW'
+batch_input_file_test_part3 = 'file-4sa5uNdNmue7yZURC7MYd9'
+batch_input_file_test_part4 = 'file-JESMH16D18iiZuY5xZ5pKJ'
+
+# 2025-02-19 19:29:04.982444
+batch_input_file_test_part2 = 'file-MCrgjf5jBXL7aKAWd6uEP2'
+batch_input_file_test_part3 = 'file-BM5Jp43V77pWqxdpDtjYKQ'
+batch_input_file_test_part4 = 'file-HzGWuDNDqtMEVXU4YULKjN'
+batch_input_file_test_part5 = 'file-KUfVWqTZaTiuVX7BSwXgoj'
+
+# 2025-02-19 19:29:44.112661
+batch_input_file_test_part2 = 'file-JhEa2hW6KceANA768jpGh1'
+batch_input_file_test_part3 = 'file-XUmQVNJbfBAaDgEDuvLHXC'
+batch_input_file_test_part4 = 'file-4WeMBw6Zp4BxrbyDmattQi'
+
+# 2025-02-19 19:35:35.158940
+batch_input_file_test_part1 = 'file-7tn2yCo8GtE5Nj13EBUFCr'
+batch_input_file_test_part2 = 'file-Y1GzwVZxWdHc9izTQuXDLw'
+batch_input_file_test_part3 = 'file-19E72gnCvQLRXhhJDYbbEU'
+batch_input_file_test_part4 = 'file-MEH4Ly2TgTfoVRs283XvZJ'
+
+# 2025-02-19 19:36:30.457082
+batch_input_file_test_part2 = 'file-Hj6XFiUydh6coEy3vo7z35'
+batch_input_file_test_part2 = 'file-JHyiiEzjqQSFft3J1vQbuG'
+batch_input_file_test_part2 = 'file-QysLMs12xBf4QV6yjfARiZ'
+batch_input_file_test_part2 = 'file-NCDMGcobRVLGJiopRu7vu7'
