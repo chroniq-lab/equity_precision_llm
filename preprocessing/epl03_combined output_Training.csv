@@ -2,16 +2,16 @@ Sensitivity,Specificity,Accuracy,ppv,npv,variable,Scenario
 0.8,1.0,0.9,1.0,0.8333333333333334,Precision Medicine,Scenario1
 1.0,0.6666666666666666,0.85,0.7857142857142857,1.0,Diabetes,Scenario1
 1.0,,1.0,,,Primary Study,Scenario1
-,,0.5,,,Source Population,Scenario1
+,,0.7,,,Source Population,Scenario1
 0.9,1.0,0.95,1.0,0.9090909090909091,Precision Medicine,Scenario2
 1.0,0.7777777777777778,0.9,0.8461538461538461,1.0,Diabetes,Scenario2
 0.95,,0.95,,0.0,Primary Study,Scenario2
-,,0.5,,,Source Population,Scenario2
+,,0.7,,,Source Population,Scenario2
 0.9,1.0,0.95,1.0,0.9090909090909091,Precision Medicine,Scenario3
 1.0,0.6666666666666666,0.85,0.7857142857142857,1.0,Diabetes,Scenario3
 1.0,,1.0,,,Primary Study,Scenario3
-,,0.5,,,Source Population,Scenario3
+,,0.65,,,Source Population,Scenario3
 0.8,1.0,0.9,1.0,0.8333333333333334,Precision Medicine,Scenario4
 1.0,0.7777777777777778,0.9,0.8461538461538461,1.0,Diabetes,Scenario4
 1.0,,1.0,,,Primary Study,Scenario4
-,,0.5,,,Source Population,Scenario4
+,,0.7,,,Source Population,Scenario4
