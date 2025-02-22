@@ -1,3 +1,7 @@
+import pandas as pd
+import re
+import os
+
 
 
 
@@ -5,7 +9,12 @@ def prompt_generator(PMID, base_prompt_list, excel_path, sheet_name = 'Training 
     # print(PMID)
 
     # Step 1: Read the excel sheet
-    df = pd.read_excel(excel_path, sheet_name=sheet_name)
+    if excel_path.endswith('.xlsx') or excel_path.endswith('.xls'):
+        df = pd.read_excel(excel_path, sheet_name=sheet_name)
+    elif excel_path.endswith('.csv'):
+        df = pd.read_csv(excel_path)
+    else:
+        raise ValueError("Unsupported file format. Please provide an Excel or CSV file.")
 
     # Step 2: Filter the excel sheet for the PMID, and create 3 variables: title, abstract, mesh
     record = df[df['PMID'] == PMID].iloc[0]
