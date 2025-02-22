@@ -1,0 +1,114 @@
+### RE-STRUCTURING MESH DATA
+
+# Load  library
+library(dplyr)
+
+# Load RDS file
+df <- readRDS("~/Library/CloudStorage/OneDrive-Emory/Global Equity in Diabetes Precision Medicine Research/working/cleaned/epan03_mesh.RDS")
+
+# Concatenate DescriptorName for each pmid and change name to MeSH
+df_combined <- df %>%
+  group_by(pmid) %>%
+  summarise(MeSH = paste(DescriptorName, collapse = ", "), .groups = 'drop')
+
+# View new data
+print(df_combined)
+
+# Save file
+saveRDS(df_combined, "epan03_mesh_combined.rds")
+
+### MERGING ALL 3 FILES
+
+# Load RDS files
+df_combined <- readRDS("epan03_mesh_combined.rds") # Contains pmid and MeSH terms
+epan03_abstracts <- readRDS("~/Library/CloudStorage/OneDrive-Emory/Global Equity in Diabetes Precision Medicine Research/working/cleaned/epan03_abstracts.RDS") # Contains pmid and abstracts
+epan03_titles <- readRDS("~/Library/CloudStorage/OneDrive-Emory/Global Equity in Diabetes Precision Medicine Research/working/cleaned/epan03_titles.RDS") # Contains pmid and titles
+
+df_combined <- df_combined %>% distinct(pmid, .keep_all = TRUE)
+epan03_titles <- epan03_titles %>% distinct(pmid, .keep_all = TRUE)
+
+# Merge the three data frames on 'pmid'
+final_df <- df_combined %>%
+  left_join(epan03_abstracts, by = "pmid") %>%
+  left_join(epan03_titles, by = "pmid")
+
+
+# View the final merged dataset
+print(final_df)
+
+# Save file
+write.csv(final_df, "final_epan03_merged_data.csv", row.names = FALSE)
+
+# Adding year data
+year_data <- readRDS("~/Library/CloudStorage/OneDrive-Emory/Global Equity in Diabetes Precision Medicine Research/working/cleaned/epdat03_all abstracts.RDS")
+
+# Convert pmid in both datasets to character
+final_df <- final_df %>%
+  mutate(pmid = as.character(pmid))
+
+year_data <- year_data %>%
+  mutate(pmid = as.character(pmid))
+
+year_data <- year_data %>%
+  group_by(pmid) %>%
+  summarise(year = min(year), .groups = 'drop')
+
+# Perform the join
+final_df <- final_df %>%
+  left_join(year_data, by = "pmid")
+
+# Filter out titles before 2010
+final_df <- final_df %>%
+  filter(year.x >= 2010)
+
+# Remove specific columns
+final_df <- final_df %>% select(-title.y, -abstract.y, -keywords, -year.y)
+
+# Rename columns
+final_df <- final_df %>% rename(PMID = pmid, Abstract = abstract.x, Title = title.x, Year = year.x)
+
+# Reorder columns
+final_df <- final_df %>% select(PMID, Title, Abstract, MeSH, Year, everything())
+
+# Address missing data
+final_df <- final_df %>% mutate(across(everything(), ~replace(., . %in% c(NA, "NA"), "N/A")))
+
+### Remove training, dev, and test data duplicates
+library(readxl)
+
+# Load the three screened datasets from CSV files
+training_screened_df <- read_excel("/Users/aamnasoniwala/Library/CloudStorage/OneDrive-Emory/Global Equity in Diabetes Precision Medicine LLM/llm training/Methods.xlsx", sheet = "Training Data")
+dev_screened_df <- read_excel("/Users/aamnasoniwala/Library/CloudStorage/OneDrive-Emory/Global Equity in Diabetes Precision Medicine LLM/llm training/epldat03_Development Data.xlsx")
+test_screened_df <- read_excel("/Users/aamnasoniwala/Library/CloudStorage/OneDrive-Emory/Global Equity in Diabetes Precision Medicine LLM/llm training/epldat03_Test Data.xlsx")
+
+# Ensure PMIDs are treated as characters for accurate comparison
+final_df$PMID <- as.character(final_df$PMID)
+training_screened_df$PMID <- as.character(training_screened_df$PMID)
+dev_screened_df$PMID <- as.character(dev_screened_df$PMID)
+test_screened_df$PMID <- as.character(test_screened_df$PMID)
+
+# Combine all screened PMIDs into a single vector
+all_screened_pmids <- unique(c(training_screened_df$PMID, dev_screened_df$PMID, test_screened_df$PMID))
+
+# Filter out PMIDs that appear in any of the screened datasets
+df_filtered <- final_df %>% filter(!PMID %in% all_screened_pmids)
+
+# Save the filtered dataset back as an RDS file
+saveRDS(df_filtered, "filtered_dataset.rds")
+
+library(writexl)
+
+# Load the RDS dataset
+df <- readRDS("filtered_dataset.rds")
+
+# Save as an Excel file
+write.csv(df, "epldat03_Unattributable Data.csv")
+
+# Define file path
+file_path <- "/Users/aamnasoniwala/Library/CloudStorage/OneDrive-Emory/Global Equity in Diabetes Precision Medicine LLM/llm training/Unclassified Splits/epldat03_Unattributable Data.csv"  
+
+# Save as an Excel file in OneDrive
+write.csv(df, file_path, row.names = FALSE)
+
+# Print confirmation
+print(paste("File saved to OneDrive at:", file_path))
