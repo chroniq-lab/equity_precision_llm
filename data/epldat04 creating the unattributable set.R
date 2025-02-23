@@ -35,7 +35,10 @@ final_df <- df_combined %>%
   left_join(epan03_titles, by = "pmid") %>% 
   dplyr::filter(year >= 2010) %>% 
   mutate(across(everything(), ~replace(., . %in% c(NA, "NA"), "N/A"))) %>% 
-  mutate(pmid = as.numeric(pmid))
+  mutate(pmid = as.numeric(pmid)) %>% 
+  rename(PMID = pmid,
+         Title = title,
+         Abstract = abstract)
 
 ### Remove training, dev, and test data duplicates
 library(readxl)
@@ -48,7 +51,7 @@ test_screened_df <- read_excel(paste0(path_equity_precision_llm_folder,"/llm tra
 
 # Filter out PMIDs that appear in any of the screened datasets
 df_filtered <- final_df %>% 
-  dplyr::filter(!pmid %in% c(training_screened_df$PMID,
+  dplyr::filter(!PMID %in% c(training_screened_df$PMID,
                       dev_screened_df$PMID,
                       test_screened_df$PMID))
 
