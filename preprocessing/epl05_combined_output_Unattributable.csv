@@ -1,24 +1,10 @@
 combined_category,Unknown,ca,cee,ea,lac,mena,na,sa,seap,ssa,we
-nan_nan_nan,11,0,0,0,0,0,0,0,0,0,0
-no evidence due to retraction_no evidence due to retraction_no evidence due to retraction,1,0,0,0,0,0,0,0,0,0,0
-no_no_no,7184,5,75,339,52,60,5116,43,31,23,381
-no_no_not applicable,1,0,0,0,0,0,0,0,0,0,0
-no_no_not enough information,1,0,0,0,0,0,0,0,0,0,0
-no_no_yes,21988,29,1401,2931,522,1141,10467,476,218,284,3302
-no_yes_no,2860,6,108,465,34,92,4710,66,25,35,540
-no_yes_not determinable,1,0,0,0,0,0,0,0,0,0,0
-no_yes_not determinable (insufficient information),1,0,0,0,0,0,0,0,0,0,0
-no_yes_not enough information,4,0,0,0,0,0,0,0,0,0,0
-no_yes_unknown,1,0,0,0,0,0,0,0,0,0,0
-no_yes_yes,12777,18,1529,3787,573,1387,11208,962,358,429,4062
-not determinable_not determinable_not determinable,1,0,0,0,0,0,0,0,0,0,0
-yes_no_no,312,0,12,49,3,6,541,1,1,16,117
-yes_no_not determinable,1,0,0,0,0,0,0,0,0,0,0
-yes_no_not enough information,1,0,0,0,0,0,0,0,0,0,0
-yes_no_yes,1644,13,314,939,100,197,2367,91,40,81,1169
-yes_yes_no,796,3,40,112,15,21,1376,20,10,29,318
-yes_yes_not determinable,3,0,0,0,0,0,0,0,0,0,0
-yes_yes_not enough information,3,0,0,0,0,0,0,0,0,0,0
-yes_yes_not specified,1,0,0,0,0,0,0,0,0,0,0
-yes_yes_tentative,1,0,0,0,0,0,0,0,0,0,0
-yes_yes_yes,2741,36,636,2178,210,507,5138,253,142,156,3177
+nan_nan_nan,4,0,0,0,0,0,0,0,0,0,0
+no_no_no,7074,5,75,337,52,58,4997,41,31,23,370
+no_no_yes,21978,29,1399,2930,522,1141,10461,476,218,284,3300
+no_yes_no,2743,6,106,460,34,91,4538,63,25,34,527
+no_yes_yes,12719,18,1523,3778,570,1382,11151,961,357,428,4045
+yes_no_no,310,0,11,48,3,6,531,1,1,14,115
+yes_no_yes,1642,13,314,939,100,197,2365,91,40,81,1168
+yes_yes_no,746,3,40,111,15,20,1309,20,10,29,311
+yes_yes_yes,2712,36,632,2168,210,507,5119,253,141,155,3163

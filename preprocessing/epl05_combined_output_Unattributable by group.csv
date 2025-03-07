@@ -1,0 +1,11 @@
+combined_category,European,Non-European,Unknown
+nan_nan_nan,0,0,4
+no (insufficient information)_no (insufficient information)_no (insufficient information),0,0,1
+no_no_no,5321,567,7103
+no_no_yes,13732,6887,22128
+no_yes_no,5019,745,2763
+no_yes_yes,15143,8808,12922
+yes_no_no,639,81,312
+yes_no_yes,3505,1741,1669
+yes_yes_no,1596,200,755
+yes_yes_yes,8181,3940,2777
