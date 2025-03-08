@@ -1,10 +1,9 @@
 combined_category,European,Non-European,Unknown
-no (insufficient information)_no (insufficient information)_no (insufficient information),0,0,1
-no_no_no,5321,567,29
-no_no_yes,13732,6887,150
-no_yes_no,5019,745,20
-no_yes_yes,15143,8808,203
-yes_no_no,639,81,2
-yes_no_yes,3505,1741,27
-yes_yes_no,1596,200,9
-yes_yes_yes,8181,3940,65
+no_no_no,5321,567,0
+no_no_yes,13732,6887,4
+no_yes_no,5018,745,0
+no_yes_yes,15143,8808,1
+yes_no_no,639,81,0
+yes_no_yes,3505,1741,0
+yes_yes_no,1596,200,0
+yes_yes_yes,8181,3940,0
