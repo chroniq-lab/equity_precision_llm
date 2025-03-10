@@ -1,4 +1,4 @@
-def clean_input(input_path,sheet_name = 'Training Data'):
+def clean_input(input_path,sheet_name = 'Sheet1'):
 
         # Step 1: Read the excel sheet
     if excel_path.endswith('.xlsx') or input_path.endswith('.xls'):
