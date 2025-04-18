@@ -13,7 +13,7 @@ def format_o3_output(json_output):
         try:
             markdown_table = df['response'][i]['body']['choices'][0]['message']['content'] # Extracts markdown table
             cleaned_table = re.sub(r'^.*?(?=\| PMID)', '', markdown_table, flags=re.DOTALL) # Identifies and removes everything before 'PMID'
-            
+
             table_data = cleaned_table.split('\n\n')[0]  # Extract the first part after splitting on \n\n  
             out = pd.read_csv(pd.io.common.StringIO(table_data), 
                       sep="|", 
@@ -24,19 +24,19 @@ def format_o3_output(json_output):
             results = pd.concat([results, out.iloc[[1]]], ignore_index=True)
         except (KeyError, IndexError, pd.errors.ParserError) as e:
             raise ValueError("Error parsing markdown table") from e
-            
 
-        
+
+
 
     # Remove unnamed columns
     results = results.loc[:, ~results.columns.str.contains('^unnamed')]
 
     # Rename columns
     rename_dict = {
-        'precision medicine': 'gpt_precision_medicine',
-        'diabetes': 'gpt_diabetes',
-        'primary study': 'gpt_primary_study',
-        'source population': 'gpt_source_population'
+        'precision medicine': 'o3_precision_medicine',
+        'diabetes': 'o3_diabetes',
+        'primary study': 'o3_primary_study',
+        'source population': 'o3_source_population'
     }
     results = results.rename(columns=rename_dict)
 
@@ -45,7 +45,7 @@ def format_o3_output(json_output):
         results['pmid'] = results['pmid'].astype('int32', errors='ignore')
 
     # Convert string columns to lowercase
-    for col in ['gpt_precision_medicine', 'gpt_diabetes', 'gpt_primary_study', 'gpt_source_population']:
+    for col in ['o3_precision_medicine', 'o3_diabetes', 'o3_primary_study', 'o3_source_population']:
         if col in results.columns:
             results[col] = results[col].str.lower().str.strip()
 
@@ -64,7 +64,7 @@ def format_o3_output_v2(json_saved_output):
         try:
             markdown_table = df['response'][i]['body']['choices'][0]['message']['content'] # Extracts markdown table
             cleaned_table = re.sub(r'^.*?(?=\| PMID)', '', markdown_table, flags=re.DOTALL) # Identifies and removes everything before 'PMID'
-            
+
             table_data = cleaned_table.split('\n\n')[0]  # Extract the first part after splitting on \n\n  
             out = pd.read_csv(pd.io.common.StringIO(table_data), 
                       sep="|", 
@@ -76,19 +76,19 @@ def format_o3_output_v2(json_saved_output):
         finally:
             # raise ValueError("Error parsing markdown table") from e
             continue
-            
 
-        
+
+
 
     # Remove unnamed columns
     results = results.loc[:, ~results.columns.str.contains('^unnamed')]
 
     # Rename columns
     rename_dict = {
-        'precision medicine': 'gpt_precision_medicine',
-        'diabetes': 'gpt_diabetes',
-        'primary study': 'gpt_primary_study',
-        'source population': 'gpt_source_population'
+        'precision medicine': 'o3_precision_medicine',
+        'diabetes': 'o3_diabetes',
+        'primary study': 'o3_primary_study',
+        'source population': 'o3_source_population'
     }
     results = results.rename(columns=rename_dict)
 
@@ -97,7 +97,7 @@ def format_o3_output_v2(json_saved_output):
         results['pmid'] = results['pmid'].astype('int32', errors='ignore')
 
     # Convert string columns to lowercase
-    for col in ['gpt_precision_medicine', 'gpt_diabetes', 'gpt_primary_study', 'gpt_source_population']:
+    for col in ['o3_precision_medicine', 'o3_diabetes', 'o3_primary_study', 'o3_source_population']:
         if col in results.columns:
             results[col] = results[col].str.lower().str.strip()
 
