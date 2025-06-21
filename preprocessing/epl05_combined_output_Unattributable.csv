@@ -1,10 +1,8 @@
 combined_category,Unknown,ca,cee,ea,lac,mena,na,sa,seap,ssa,we
-nan_nan_nan,4,0,0,0,0,0,0,0,0,0,0
-no (insufficient information)_no (insufficient information)_no (insufficient information),1,0,0,0,0,0,0,0,0,0,0
 no_no_no,7099,5,75,337,52,58,5001,41,31,23,374
 no_no_yes,22122,29,1400,2931,523,1142,10464,476,218,284,3304
 no_yes_no,2763,6,106,460,34,91,4538,63,25,34,528
-no_yes_yes,12919,18,1523,3778,571,1382,11153,961,357,428,4047
+no_yes_yes,12919,18,1523,3778,571,1382,11150,961,357,428,4047
 yes_no_no,312,0,11,48,3,6,531,1,1,14,115
 yes_no_yes,1668,13,314,939,100,197,2366,91,40,81,1169
 yes_yes_no,755,3,40,111,15,20,1309,20,10,29,311

@@ -2,7 +2,7 @@ def clean_input(input_path,sheet_name = 'Sheet1'):
 
         # Step 1: Read the excel sheet
     if input_path.endswith('.xlsx') or input_path.endswith('.xls'):
-        input = pd.read_excel(input_path, sheet_name=sheet_name)
+        input = pd.read_excel(input_path, sheet_name=sheet_name, na_values=['na'], keep_default_na=False)
     elif input_path.endswith('.csv'):
         input = pd.read_csv(input_path,sep=',')
     else:
